@@ -1,14 +1,20 @@
-import os
+# This will make 4 json files, 3 are about player windows names.
+#  -streams (not used)
+#  -drivers
+#  -all
+#  #  and the 4th is the positions on the screen for each player.
 
+
+import os
 from json import dump
 
-# This will make 4 json files, 3 are about player windows names and the 4th is the postions
-# on the screen for each player
+from settings import path
 
 
 
-if not os.path.exists('./json'):
-    os.makedirs('./json')
+# Create the json folder if it doesn't exist
+if not os.path.exists(f'{path}json'):
+    os.makedirs(f'{path}json')
 
 
 
@@ -32,16 +38,14 @@ player_driver_dict = {"Max Verstappen — MultiViewer": "VER", "Fernando Alonso 
 player_all_dict = player_driver_dict.copy()
 player_all_dict.update(player_streams_dict)
 
-# with open("./json/streams.json", "w") as json_file:
-#     dump(player_streams_dict, json_file, indent=4)
+with open(f'{path}\\json\\streams.json', 'w') as json_file:
+    dump(player_streams_dict, json_file, indent=4)
 
-with open("./json/drivers.json", "w") as json_file:
+with open(f'{path}\\json\\drivers.json', 'w') as json_file:
     dump(player_driver_dict, json_file, indent=4)
 
-with open("./json/all.json", "w") as json_file:
+with open(f'{path}\\json\\all.json', 'w') as json_file:
     dump(player_all_dict, json_file, indent=4)
-
-
 
 positions = [[None for _ in range(25)] for _ in range(25)]
 
@@ -87,6 +91,22 @@ positions[7][5] = [2, 0, 1, 1]
 positions[7][6] = [3, 1, 1, 1]
 positions[7][7] = [3, 0, 1, 1]
 
+positions[7][1] = [0, 0, 2, 2]
+positions[7][2] = [2, 0, 2, 2]
+positions[7][3] = [0, 2, 2, 2]
+positions[7][4] = [2, 2, 1, 1]
+positions[7][5] = [3, 2, 1, 1]
+positions[7][6] = [3, 3, 1, 1]
+positions[7][7] = [2, 3, 1, 1]
+
+positions[7][1] = [0, 0, 2, 2]
+positions[7][2] = [0, 2, 2, 2]
+positions[7][3] = [2, 1, 2, 2]
+positions[7][4] = [2, 0, 1, 1]
+positions[7][5] = [3, 0, 1, 1]
+positions[7][6] = [3, 3, 1, 1]
+positions[7][7] = [2, 3, 1, 1]
+
 positions[8][0] = (4, 4)
 positions[8][1] = [0, 0, 3, 3]
 positions[8][2] = [0, 3, 1, 1]
@@ -119,6 +139,29 @@ positions[10][7] = [3, 2, 1, 1]
 positions[10][8] = [3, 3, 1, 1]
 positions[10][9] = [3, 0, 1, 1]
 positions[10][10] = [3, 1, 1, 1]
+
+positions[10][0] = (4, 4)
+positions[10][1] = [0, 0, 2, 2]
+positions[10][2] = [0, 2, 2, 2]
+positions[10][3] = [2, 0, 1, 1]
+positions[10][4] = [3, 0, 1, 1]
+positions[10][5] = [2, 1, 1, 1]
+positions[10][6] = [3, 1, 1, 1]
+positions[10][7] = [2, 2, 1, 1]
+positions[10][8] = [3, 2, 1, 1]
+positions[10][9] = [3, 3, 1, 1]
+positions[10][10] = [2, 3, 1, 1]
+
+positions[10][1] = [0, 0, 1, 1]
+positions[10][2] = [1, 0, 1, 1]
+positions[10][3] = [2, 0, 1, 1]
+positions[10][4] = [3, 0, 1, 1]
+positions[10][5] = [0, 1, 2, 2]
+positions[10][6] = [2, 1, 2, 2]
+positions[10][7] = [0, 3, 1, 1]
+positions[10][8] = [1, 3, 1, 1]
+positions[10][10] = [2, 3, 1, 1]
+positions[10][9] = [3, 3, 1, 1]
 
 positions[11][0] = (4, 4)
 positions[11][1] = [1, 1, 2, 2]
@@ -180,5 +223,5 @@ positions[16][14] = [3, 3, 1, 1]
 positions[16][15] = [3, 1, 1, 1]
 positions[16][16] = [3, 0, 1, 1]
 
-with open("./json/screens.json", "w") as json_file:
+with open(f'{path}json\\screens.json', 'w') as json_file:
     dump(positions, json_file)
