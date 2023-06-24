@@ -10,7 +10,7 @@ from settings import ll, tt, rr, bb, all_dict, path
 
 def windows_list(json_fn='drivers'):
     if json_fn == 'drivers':
-        with open(f'{path}json\\{json_fn}.json', 'r') as json_file:
+        with open(f'{path}grid_order.json', 'r') as json_file:
             dict1 = json.load(json_file)
     elif json_fn == 'all':
         dict1 = all_dict
@@ -29,7 +29,7 @@ def windows_list(json_fn='drivers'):
     def callback_windows_list(hwnd, windows):
         if win32gui.IsWindowVisible(hwnd):
             x = get_window_info(hwnd)
-            if x['Title'] in dict1.keys():
+            if x['Title'] in dict1:
                 windows.append(x)
 
     windows_list = []
@@ -49,7 +49,7 @@ def get_hwnds():
             unique.append(w['Title'])
     sleep(close_timer)
 
-    with open(f'{path}json\drivers.json', 'r') as json_file:
+    with open(f'{path}grid_order.json', 'r') as json_file:
         player_dict2 = json.load(json_file)
     the_list = []
     for player in player_dict2:

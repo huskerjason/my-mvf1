@@ -4,7 +4,9 @@ This is a helper app for F1 Multiviewer.
 
 2 Run make_json.py
 
-3
+3 Open up F1 MutliViewer
+
+4 mash buttons
 
 
 
