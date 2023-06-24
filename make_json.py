@@ -6,21 +6,16 @@
 
 
 import os
+
 from json import dump
-
 from settings import path
-
-
-
 
 # Create the json folder if it doesn't exist
 if not os.path.exists(f'{path}json'):
     os.makedirs(f'{path}json')
 
-
-
+# make dictionaries with player titles
 player_streams_dict = {"F1 Live — MultiViewer": "F1LIVE", "International — MultiViewer": "INT"}
-
 player_driver_dict = {"Max Verstappen — MultiViewer": "VER", "Fernando Alonso — MultiViewer": "ALO",
                       "Sergio Perez — MultiViewer": "PER", "Lewis Hamilton — MultiViewer": "HAM",
                       "Charles Leclerc — MultiViewer": "LEC", "George Russell — MultiViewer": "RUS",
@@ -34,11 +29,24 @@ player_driver_dict = {"Max Verstappen — MultiViewer": "VER", "Fernando Alonso 
                       'Sebastian Vettel — MultiViewer': 'VET', 'Mick Schumacher — MultiViewer': 'MSC',
                       'Daniel Ricciardo — MultiViewer': 'RIC', 'Nicholas Latifi — MultiViewer': 'LAT',
                       'Liam Lawson — MultiViewer': 'LAW',
-                      "Data Channel — MultiViewer": "DATA", "Driver Tracker — MultiViewer": "TRACKER"}
+
+'Kimi Räikkönen — MultiViewer':'RAI',
+'Robert Kubica — MultiViewer':'KUB',
+'Daniil Kvyat — MultiViewer':'KVY',
+'Antonio Giovinazzi — MultiViewer':'GIO',
+
+
+
+                      "Data Channel — MultiViewer": "DATA","Driver Tracker — MultiViewer": "TRACKER"}
 
 player_all_dict = player_driver_dict.copy()
 player_all_dict.update(player_streams_dict)
 
+print(player_streams_dict)
+print(player_all_dict)
+print(player_driver_dict)
+
+# save those dictionaries
 with open(f'{path}\\json\\streams.json', 'w') as json_file:
     dump(player_streams_dict, json_file, indent=4)
 
@@ -48,6 +56,7 @@ with open(f'{path}\\json\\drivers.json', 'w') as json_file:
 with open(f'{path}\\json\\all.json', 'w') as json_file:
     dump(player_all_dict, json_file, indent=4)
 
+#
 positions = [[None for _ in range(25)] for _ in range(25)]
 
 positions[1][0] = (1, 1)
@@ -226,3 +235,5 @@ positions[16][16] = [3, 0, 1, 1]
 
 with open(f'{path}json\\screens.json', 'w') as json_file:
     dump(positions, json_file)
+
+print(positions)

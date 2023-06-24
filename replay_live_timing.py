@@ -1,5 +1,8 @@
 import sys
+from time import sleep
+
 import win32gui
+
 
 #
 
@@ -14,14 +17,22 @@ def replay_live_timing(left, top, width, heigth):
 
 
 def player_launch_menu(left=1024, top=0, width=0, heigth=0):
-
     def callback(hwnd, windows):
         if win32gui.IsWindowVisible(hwnd):
             title = win32gui.GetWindowText(hwnd)
-            if ' — MultiViewer' in title:
-                if '2023' in title or '2022' in title or 'Home' in title:
+
+
+
+            # if ' — MultiViewer' in title:
+            #     if '2023' in title or '2022' in title or '2021' in title or '2020' in title or '2019' in title or '2018' in title or 'Home' in title:
+            #         windows.append({"title": title, "hwnd": hwnd})
+            # elif title == 'MultiViewer':
+            #     windows.append({"title": title, "hwnd": hwnd})
+
+            if 'MultiViewer' in title:
+                if any(word in title for word in ['2023', '2022', '2021', '2020', '2019', '2018', 'Home']):
                     windows.append({"title": title, "hwnd": hwnd})
-            elif title =='MultiViewer':
+            elif title == 'MultiViewer':
                 windows.append({"title": title, "hwnd": hwnd})
 
     players = []
@@ -51,12 +62,20 @@ if __name__ == "__main__":
     if len(sys.argv) >= 2:
         if sys.argv[1] in ['Left', 'left', 'l', 'L']:
             replay_live_timing(-1926, 1, 0, 1046)
+
         elif sys.argv[1] in ['Right', 'right', 'r', 'R']:
             replay_live_timing(-106, 1, 1, 1046)
+
+        elif sys.argv[1] in ['pycharm']:
+            player_launch_menu(1024, 0, 0, 1020)
+            replay_live_timing(-7, -50, 1, 1200)
+            commentary(123, 1, 439, 247)
+
         elif sys.argv[1] in ['small']:
             player_launch_menu(1024, 0, 0, 1020)
             replay_live_timing(-7, -50, 1, 1200)
             commentary(98, 1, 1280, 720)
+
         elif sys.argv[1] in ['big']:
             replay_live_timing(-7, -50, 1, 1200)
             commentary(103, 2, 1806, 1016)
@@ -65,4 +84,3 @@ if __name__ == "__main__":
         replay_live_timing(-7, -50, 1, 1100)
         commentary(98, 1, 1280, 720)
         player_launch_menu(1024, 0, 0, 1020)
-
