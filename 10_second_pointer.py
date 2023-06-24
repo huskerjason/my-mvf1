@@ -1,3 +1,7 @@
+# This script give the coords of the pointer for 10 seconds
+#
+# pip install pynput
+
 import time
 from pynput import mouse
 
