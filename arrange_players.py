@@ -1,37 +1,30 @@
 from time import sleep
 
-import json
-import tiler
 import win32con
 import win32gui
 
-# left, top, right and bottom
-ll = -1920
-tt = 0
-rr = 2
-bb = 1042
+import json
+import tiler
+from settings import ll, tt, rr, bb, all_dict, path
 
-ll = -1918
-tt = 2
-rr = -2
-bb = 1038
-
-path = 'C:\\Users\\Jason\\Desktop\\python\\jch-mvf1\\Main\\'
 
 def windows_list(json_fn='drivers'):
+    if json_fn == 'drivers':
+        with open(f'{path}json\\{json_fn}.json', 'r') as json_file:
+            dict1 = json.load(json_file)
+    elif json_fn == 'all':
+        dict1 = all_dict
+
     def get_window_info(hwnd):
         left1, top1, right1, bottom1 = win32gui.GetWindowRect(hwnd)
         x, y, width, height = left1, top1, right1 - left1, bottom1 - top1
         title = win32gui.GetWindowText(hwnd)
-
         return {
             "Title": title,
             "Position": (x, y),
             "Size": (width, height),
             "hwnd": hwnd
         }
-    with open(f'{path}json\{json_fn}.json', 'r') as json_file:
-        dict1 = json.load(json_file)
 
     def callback_windows_list(hwnd, windows):
         if win32gui.IsWindowVisible(hwnd):
@@ -41,12 +34,10 @@ def windows_list(json_fn='drivers'):
 
     windows_list = []
     win32gui.EnumWindows(callback_windows_list, windows_list)
-
     return windows_list
 
 
 def get_hwnds():
-
     unique = []
     close_timer = 0
     for w in windows_list('all'):
@@ -77,10 +68,9 @@ if __name__ == "__main__":
     # rr = 2
     # bb = 1042
 
-
     hwnds = get_hwnds()
 
+    # print(windows_list())
     # print(hwnds)
-
 
     tiler.tiler(hwnd_list=hwnds, left=ll, top=tt, right=rr, bottom=bb)

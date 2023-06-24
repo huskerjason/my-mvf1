@@ -49,6 +49,6 @@ def list_all_windows():
 if __name__ == "__main__":
 
     for w in list_all_windows():
-        print(w)
+        print(f"'{w['title']}': '',")
 
     print(get_player_lauch_menu_handle())
