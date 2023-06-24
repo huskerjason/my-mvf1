@@ -12,6 +12,7 @@ from settings import path
 
 
 
+
 # Create the json folder if it doesn't exist
 if not os.path.exists(f'{path}json'):
     os.makedirs(f'{path}json')
