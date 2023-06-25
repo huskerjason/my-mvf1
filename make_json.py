@@ -40,7 +40,6 @@ grid_order.update(data)
 
 x = list(grid_order.keys())
 
-
 # save those dictionaries
 with open(f'{path}grid_order.json', 'w') as json_file:
     dump(x, json_file, indent=4)
@@ -187,34 +186,17 @@ positions[11][9] = [1, 3, 1, 1]
 positions[11][10] = [0, 1, 1, 2]
 positions[11][11] = [3, 1, 1, 2]
 
-
-
-
-
-
-
-positions[11][1] = [ 0,0,2,2]
-positions[11][2] = [ 2,0,1,1]
-positions[11][3] = [ 3,0,1,1]
-positions[11][4] = [ 2,1,1,1]
-positions[11][5] = [ 3,1,1,1]
-positions[11][6] = [ 0,2,1,2]
-positions[11][7] = [ 1,2,1,2]
-positions[11][8] = [ 2,2,1,1]
-positions[11][9] = [ 2,3,1,1]
-positions[11][10] = [ 3,3,1,1]
-positions[11][11] = [ 3,2,1,1]
-
-
-
-
-
-
-
-
-
-
-
+positions[11][1] = [0, 0, 2, 2]
+positions[11][2] = [2, 0, 1, 1]
+positions[11][3] = [3, 0, 1, 1]
+positions[11][4] = [2, 1, 1, 1]
+positions[11][5] = [3, 1, 1, 1]
+positions[11][6] = [0, 2, 1, 2]
+positions[11][7] = [1, 2, 1, 2]
+positions[11][8] = [2, 2, 1, 1]
+positions[11][9] = [2, 3, 1, 1]
+positions[11][10] = [3, 3, 1, 1]
+positions[11][11] = [3, 2, 1, 1]
 
 positions[12][0] = (4, 4)
 positions[12][1] = [1, 1, 2, 2]
@@ -263,5 +245,4 @@ positions[16][14] = [3, 3, 1, 1]
 positions[16][15] = [3, 1, 1, 1]
 positions[16][16] = [3, 0, 1, 1]
 
-
-print('positions = '+str(positions))
+print('positions = ' + str(positions))

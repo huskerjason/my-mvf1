@@ -1,3 +1,6 @@
+# pip install mvf1
+
+
 from datetime import datetime
 
 from mvf1 import MultiViewerForF1
@@ -10,7 +13,7 @@ def change_player_stream(from_, to_):
     to_ = to_.upper()
 
     set = {'INTERNATIONAL', 'F1 LIVE', 'TRACKER', 'DATA', 'ZHO', 'BOT', 'DEV', 'TSU', 'OCO', 'GAS', 'ALO', 'STR', 'SAI',
-           'LEC', 'MAG', 'HUL', 'NOR', 'PIA', 'RUS', 'HAM', 'VER', 'PER', 'SAR', 'ALB'}
+           'LEC', 'MAG', 'HUL', 'NOR', 'PIA', 'RUS', 'HAM', 'VER', 'PER', 'SAR', 'MSC', 'ALB'}
 
     if to_ not in set or from_ not in set: return False
     t1 = datetime.now()
@@ -43,7 +46,8 @@ def change_player_stream(from_, to_):
     print(t1 - t0)
 
 
-print(change_player_stream('NOR', 'BOT'))
+print(change_player_stream('PER', 'VER'))
+# print(change_player_stream('MSC', 'PER'))
 
 t1 = datetime.now()
 print(t1 - t0)
