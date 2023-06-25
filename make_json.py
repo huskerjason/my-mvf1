@@ -63,8 +63,8 @@ positions[1][0] = (1, 1)
 positions[1][1] = [0, 0, 1, 1]
 
 positions[2][0] = (1, 2)
-positions[2][1] = [0, 0, 1, 1]
-positions[2][2] = [0, 1, 1, 1]
+positions[2][1] = [0, 1, 1, 1]
+positions[2][2] = [0, 0, 1, 1]
 
 positions[3][0] = (2, 2)
 positions[3][1] = [0, 0, 1, 1]
@@ -226,6 +226,39 @@ positions[13][10] = [1, 3, 1, 1]
 positions[13][11] = [3, 2, 1, 1]
 positions[13][12] = [2, 3, 1, 1]
 positions[13][13] = [3, 3, 1, 1]
+
+positions[14][0] = (4, 4)
+positions[14][1] = [1, 0, 1, 1]
+positions[14][2] = [2, 0, 1, 1]
+positions[14][3] = [3, 0, 1, 1]
+positions[14][4] = [1, 1, 1, 1]
+positions[14][5] = [2, 1, 1, 1]
+positions[14][6] = [3, 1, 1, 1]
+positions[14][7] = [1, 2, 1, 1]
+positions[14][8] = [2, 2, 1, 1]
+positions[14][9] = [3, 2, 1, 1]
+positions[14][10] = [1, 3, 1, 1]
+positions[14][11] = [2, 3, 1, 1]
+positions[14][12] = [3, 3, 1, 1]
+positions[14][13] = [0, 2, 1, 2]
+positions[14][14] = [0, 0, 1, 2]
+
+positions[15][0] = (4, 4)
+positions[15][1] = [0, 0, 1, 1]
+positions[15][2] = [0, 1, 1, 1]
+positions[15][3] = [1, 0, 1, 1]
+positions[15][4] = [1, 1, 1, 1]
+positions[15][5] = [1, 2, 1, 1]
+positions[15][6] = [2, 0, 1, 1]
+positions[15][7] = [2, 1, 1, 1]
+positions[15][8] = [2, 2, 1, 1]
+positions[15][9] = [2, 3, 1, 1]
+positions[15][10] = [3, 0, 1, 1]
+positions[15][11] = [3, 1, 1, 1]
+positions[15][12] = [3, 2, 1, 1]
+positions[15][13] = [3, 3, 1, 1]
+positions[15][14] = [1, 3, 1, 1]
+positions[15][15] = [0, 2, 1, 2]
 
 positions[16][0] = (4, 4)
 positions[16][1] = [0, 0, 1, 1]

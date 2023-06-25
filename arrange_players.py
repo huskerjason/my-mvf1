@@ -1,18 +1,12 @@
+import json
 from time import sleep
 
+import pyautogui
 import win32con
 import win32gui
-import pyautogui
-import json
-
-
 
 import tiler
 from settings import ll, tt, rr, bb, path, all_list
-
-
-
-
 
 
 def windows_list(json_fn='drivers'):
@@ -71,9 +65,6 @@ def get_hwnds():
     return the_list
 
 
-
-
-
 def sync_players():
     hwnd = win32gui.FindWindow(None, 'F1 Live — MultiViewer')
     if not hwnd:
@@ -103,13 +94,7 @@ def sync_players():
         pyautogui.moveTo(pos)
 
 
-
-
-
-
-
 if __name__ == "__main__":
-
     sync_players()
 
     hwnds = get_hwnds()
