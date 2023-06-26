@@ -1,6 +1,9 @@
 from json import dump
 
-from settings import path
+# use pwd to get your path in the terminal
+grid_order_fn = 'C:\\Users\\Jason\\Desktop\\python\\my-mvf1\\grid_order.json'
+
+
 
 # make grid order list
 commentary = {'F1 Live — MultiViewer': 'F1LIVE', 'International — MultiViewer': 'INT', 'Pit Lane — MultiViewer': 'PIT'}
@@ -32,8 +35,21 @@ all = commentary.copy()
 all.update(drivers)
 all.update(data)
 
-print('all_dict = ' + str(all))
-print('all_list = ' + str(list(all.keys())))
+all_list = list(all.keys())
+
+
+print('arrange_players.py')
+print("grid_order_fn = '"+grid_order_fn.replace('\\','\\\\')+"'")
+print('all_list = ' + str(all_list))
+
+
+
+swapped_drivers = {value: key for key, value in drivers.items()}
+print()
+print('toggle_driver.py')
+print("grid_order_fn = '"+grid_order_fn.replace('\\','\\\\')+"'")
+print('drivers = ' + str(swapped_drivers))
+
 
 grid_order = drivers.copy()
 grid_order.update(data)
@@ -41,20 +57,9 @@ grid_order.update(data)
 x = list(grid_order.keys())
 
 # save those dictionaries
-with open(f'{path}grid_order.json', 'w') as json_file:
+with open(grid_order_fn, 'w') as json_file:
     dump(x, json_file, indent=4)
 
-#
-#
-# # save those dictionaries
-# with open(f'{path}\\json\\streams.json', 'w') as json_file:
-#     dump(player_streams_dict, json_file, indent=4)
-#
-# with open(f'{path}\\json\\drivers.json', 'w') as json_file:
-#     dump(player_driver_dict, json_file, indent=4)
-#
-# with open(f'{path}\\json\\all.json', 'w') as json_file:
-#     dump(player_all_dict, json_file, indent=4)
 
 
 positions = [[None for _ in range(25)] for _ in range(25)]
@@ -278,4 +283,6 @@ positions[16][14] = [3, 3, 1, 1]
 positions[16][15] = [3, 1, 1, 1]
 positions[16][16] = [3, 0, 1, 1]
 
+print()
+print('tiler.py')
 print('positions = ' + str(positions))

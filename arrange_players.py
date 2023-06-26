@@ -6,12 +6,31 @@ import win32con
 import win32gui
 
 import tiler
-from settings import ll, tt, rr, bb, path, all_list
+
+grid_order_fn = 'C:\\Users\\Jason\\Desktop\\python\\my-mvf1\\grid_order.json'
+all_list = ['F1 Live — MultiViewer', 'International — MultiViewer', 'Pit Lane — MultiViewer', 'Max Verstappen — MultiViewer', 'Fernando Alonso — MultiViewer', 'Sergio Perez — MultiViewer', 'Lewis Hamilton — MultiViewer', 'Charles Leclerc — MultiViewer', 'George Russell — MultiViewer', 'Carlos Sainz — MultiViewer', 'Lance Stroll — MultiViewer', 'Lando Norris — MultiViewer', 'Kevin Magnussen — MultiViewer', 'Esteban Ocon — MultiViewer', 'Nico Hulkenberg — MultiViewer', 'Valtteri Bottas — MultiViewer', 'Alexander Albon — MultiViewer', 'Yuki Tsunoda — MultiViewer', 'Guanyu Zhou — MultiViewer', 'Pierre Gasly — MultiViewer', 'Nyck De Vries — MultiViewer', 'Oscar Piastri — MultiViewer', 'Logan Sargeant — MultiViewer', 'Sebastian Vettel — MultiViewer', 'Mick Schumacher — MultiViewer', 'Daniel Ricciardo — MultiViewer', 'Nicholas Latifi — MultiViewer', 'Liam Lawson — MultiViewer', 'Kimi Räikkönen — MultiViewer', 'Robert Kubica — MultiViewer', 'Daniil Kvyat — MultiViewer', 'Antonio Giovinazzi — MultiViewer', 'Romain Grosjean — MultiViewer', 'Nikita Mazepin — MultiViewer', 'Marcus Ericsson — MultiViewer', 'Sergey Sirotkin — MultiViewer', 'Brendon Hartley — MultiViewer', 'Stoffel Vandoorne — MultiViewer', 'Data Channel — MultiViewer', 'Driver Tracker — MultiViewer']
+
+
+# left, top, right and bottom
+ll = -1920
+tt = 0
+rr = 2
+bb = 1042
+
+ll = -1918
+tt = 2
+rr = -2
+bb = 1038
+
+# ll = 135
+# tt = 257
+# rr = 1908
+# bb = 1024
 
 
 def windows_list(json_fn='drivers'):
     if json_fn == 'drivers':
-        with open(f'{path}grid_order.json', 'r') as json_file:
+        with open(grid_order_fn, 'r') as json_file:
             list1 = json.load(json_file)
     elif json_fn == 'all':
         list1 = all_list
@@ -52,7 +71,7 @@ def get_hwnds():
             unique.append(w['Title'])
     sleep(close_timer)
 
-    with open(f'{path}grid_order.json', 'r') as json_file:
+    with open(grid_order_fn, 'r') as json_file:
         player_dict2 = json.load(json_file)
     the_list = []
     for player in player_dict2:
@@ -93,13 +112,12 @@ def sync_players():
         pyautogui.keyUp('s')
         pyautogui.moveTo(pos)
 
+def arrange():
+    sync_players()
+    hwnds = get_hwnds()
+    tiler.tiler(hwnd_list=hwnds, left=ll, top=tt, right=rr, bottom=bb)
+
+
 
 if __name__ == "__main__":
-    sync_players()
-
-    hwnds = get_hwnds()
-
-    # print(windows_list())
-    # print(hwnds)
-
-    tiler.tiler(hwnd_list=hwnds, left=ll, top=tt, right=rr, bottom=bb)
+    arrange()

@@ -1,30 +1,22 @@
-import sys
-
 import json
+import sys
+import arrange_players
 
 
-def move_to_top(driver_tlc):
-    with open(r'C:/Users/Jason/Desktop/python/MultiViewer_Formula_1/json/drivers.json', 'r') as json_file:
-        player_dict = json.load(json_file)
 
-    # Iterate through the dictionary and find the key associated with the desired value
-    in_dict = False
-    for key, val in player_dict.items():
-        if val == driver_tlc:
-            in_dict = True
-            break  # Exit the loop once the key is found
 
-    if in_dict:
-        new_dict = {key: val}
-        for key, val in player_dict.items():
-            if val != driver_tlc:
-                new_dict.update({key: val})
-    else:
-        return
 
-    with open(r'C:/Users/Jason/Desktop/python/MultiViewer_Formula_1/json/drivers.json', 'w') as json_file:
-        # dump(player_driver_dict, json_file, indent=4)
-        json.dump(new_dict, json_file, indent=4)
+grid_order_fn = 'C:\\Users\\Jason\\Desktop\\python\\my-mvf1\\grid_order.json'
+drivers = {'VER': 'Max Verstappen — MultiViewer', 'ALO': 'Fernando Alonso — MultiViewer', 'PER': 'Sergio Perez — MultiViewer', 'HAM': 'Lewis Hamilton — MultiViewer', 'LEC': 'Charles Leclerc — MultiViewer', 'RUS': 'George Russell — MultiViewer', 'SAI': 'Carlos Sainz — MultiViewer', 'STR': 'Lance Stroll — MultiViewer', 'NOR': 'Lando Norris — MultiViewer', 'MAG': 'Kevin Magnussen — MultiViewer', 'OCO': 'Esteban Ocon — MultiViewer', 'HUL': 'Nico Hulkenberg — MultiViewer', 'BOT': 'Valtteri Bottas — MultiViewer', 'ALB': 'Alexander Albon — MultiViewer', 'TSU': 'Yuki Tsunoda — MultiViewer', 'ZHO': 'Guanyu Zhou — MultiViewer', 'GAS': 'Pierre Gasly — MultiViewer', 'DEV': 'Nyck De Vries — MultiViewer', 'PIA': 'Oscar Piastri — MultiViewer', 'SAR': 'Logan Sargeant — MultiViewer', 'VET': 'Sebastian Vettel — MultiViewer', 'MSC': 'Mick Schumacher — MultiViewer', 'RIC': 'Daniel Ricciardo — MultiViewer', 'LAT': 'Nicholas Latifi — MultiViewer', 'LAW': 'Liam Lawson — MultiViewer', 'RAI': 'Kimi Räikkönen — MultiViewer', 'KUB': 'Robert Kubica — MultiViewer', 'KVY': 'Daniil Kvyat — MultiViewer', 'GIO': 'Antonio Giovinazzi — MultiViewer', 'GRO': 'Romain Grosjean — MultiViewer', 'MAZ': 'Nikita Mazepin — MultiViewer', 'ERI': 'Marcus Ericsson — MultiViewer', 'SIR': 'Sergey Sirotkin — MultiViewer', 'HAR': 'Brendon Hartley — MultiViewer', 'VAN': 'Stoffel Vandoorne — MultiViewer'}
+
+def move_driver_up(tlc):
+    with open(grid_order_fn, 'r') as json_file:
+        list1 = json.load(json_file)
+    if drivers[tlc] in list1:
+        index = list1.index(drivers[tlc])
+        list1.insert(0, list1.pop(index))
+        with open(grid_order_fn, 'w') as json_file:
+            json.dump(list1, json_file, indent=4)
 
 
 if __name__ == "__main__":
@@ -32,5 +24,7 @@ if __name__ == "__main__":
     if sys.argv:
         if len(sys.argv) >= 2:
             x = sys.argv[1]
-            move_to_top(x)
-
+            move_driver_up(x)
+        else:
+            move_driver_up('BOT')
+    arrange_players.arrange()
