@@ -27,7 +27,10 @@ drivers = {'Max Verstappen — MultiViewer': 'VER', 'Fernando Alonso — MultiVi
            'Marcus Ericsson — MultiViewer': 'ERI',
            'Sergey Sirotkin — MultiViewer': 'SIR',
            'Brendon Hartley — MultiViewer': 'HAR',
-           'Stoffel Vandoorne — MultiViewer': 'VAN'}
+           'Stoffel Vandoorne — MultiViewer': 'VAN',
+           'Jack Aitken — MultiViewer': 'AIT',
+           'Pietro Fittipaldi — MultiViewer': 'FIT'
+           }
 
 data = {'Data Channel — MultiViewer': 'DATA', 'Driver Tracker — MultiViewer': 'TRACKER'}
 
