@@ -1,6 +1,6 @@
 from json import dump
 
-# use pwd to get your path in the terminal
+#
 grid_order_fn = 'C:\\Users\\Jason\\Desktop\\python\\my-mvf1\\grid_order.json'
 
 

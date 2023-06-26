@@ -33,7 +33,11 @@ def player_launch_menu(size='big'):
     if players:
         hwnd = players[0]['hwnd']
         if hwnd:
-            win32gui.SetWindowPos(hwnd, 0, 1024, 0, 0, 1020, 0)
+            if size == 'pycharm':
+                win32gui.SetWindowPos(hwnd, 0, 1300, 0, 0, 1020, 0)
+            else:
+                win32gui.SetWindowPos(hwnd, 0, 1024, 0, 0, 1020, 0)
+
 
 
 def commentary(size='big'):
@@ -56,7 +60,7 @@ def commentary(size='big'):
         if hwnd_f1live:
             win32gui.SetWindowPos(hwnd_f1live,0, 98, 1, 1280, 720, 0)
             if hwnd_int:
-                win32gui.SetWindowPos(hwnd_int,0, 129, 726, 553, 311, 0)
+                win32gui.SetWindowPos(hwnd_int,0, 475, 726, 553, 311, 0)
         elif hwnd_int:
             win32gui.SetWindowPos(hwnd_int,0, 98, 1, 1280, 720, 0)
             if hwnd_pit:
@@ -69,15 +73,15 @@ def commentary(size='big'):
 
     elif size in ['pycharm']:
         if hwnd_f1live:
-            win32gui.SetWindowPos(hwnd_f1live,0, 123, 1, 644, 362, 0)
+            win32gui.SetWindowPos(hwnd_f1live,0, 123, 1, 270, 152, 0)
             if hwnd_int:
-                win32gui.SetWindowPos(hwnd_int,0, 769, 1, 644, 362, 0)
+                win32gui.SetWindowPos(hwnd_int,0, 395, 1, 270, 152, 0)
         elif hwnd_int:
-            win32gui.SetWindowPos(hwnd_int,0, 123, 1, 644, 362, 0)
+            win32gui.SetWindowPos(hwnd_int,0, 123, 1, 270, 152, 0)
             if hwnd_pit:
-                win32gui.SetWindowPos(hwnd_pit,0, 769, 1, 644, 362, 0)
+                win32gui.SetWindowPos(hwnd_pit,0, 395, 1, 270, 152, 0)
         elif hwnd_pit:
-            win32gui.SetWindowPos(hwnd_pit,0, 123, 1, 644, 362, 0)
+            win32gui.SetWindowPos(hwnd_pit,0,  123, 1, 270, 152, 0)
 
 
 

@@ -23,12 +23,6 @@ rr = -2
 bb = 1038
 
 
-# ll = 135
-# tt = 257
-# rr = 1908
-# bb = 1024
-
-
 def windows_list(json_fn='drivers'):
     if json_fn == 'drivers':
         with open(grid_order_fn, 'r') as json_file:

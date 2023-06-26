@@ -29,7 +29,7 @@ def list_all_windows():
 if __name__ == "__main__":
 
     for w in list_all_windows():
-        if 1:
+        if False :
             print(f"'{w['title']}': '',")
         elif 1:
             print(f"{w['class']:40} {w['title']:40} {w['pos']}")
