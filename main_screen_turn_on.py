@@ -1,5 +1,3 @@
-from time import sleep
-
 import sys
 
 import win32gui
@@ -67,8 +65,6 @@ def commentary(size='big'):
                 win32gui.SetWindowPos(hwnd_pit,0, 129, 726, 553, 311, 0)
         elif hwnd_pit:
             win32gui.SetWindowPos(hwnd_pit,0, 98, 1, 1280, 720, 0)
-
-
 
 
     elif size in ['pycharm']:
